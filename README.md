@@ -100,19 +100,5 @@ dotnet run
 - `PUT /api/pedagio/{id}` - Atualizar pedágio
 - `DELETE /api/pedagio/{id}` - Excluir pedágio
 
-## Documentação da API
-A documentação completa da API está disponível através do Swagger UI, acessível em:
-```
-https://localhost:7004/swagger
-```
 
-## Contribuição
-Para contribuir com o projeto, siga estas etapas:
-1. Faça um fork do repositório
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-3. Faça commit das suas alterações (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Faça push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
 
-## Licença
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
