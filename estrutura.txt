@@ -1,0 +1,7 @@
+WiseTruck.API/
+├── Controllers/
+├── Models/
+├── Services/
+├── Repositories/
+├── Data/
+└── Configuration/

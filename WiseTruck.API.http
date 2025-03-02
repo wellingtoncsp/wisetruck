@@ -1,0 +1,6 @@
+@WiseTruck.API_HostAddress = http://localhost:5234
+
+GET {{WiseTruck.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
