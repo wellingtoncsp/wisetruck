@@ -78,6 +78,9 @@ builder.Services.AddScoped<IViagemService, ViagemService>();
 builder.Services.AddScoped<IPedagioService, PedagioService>();
 builder.Services.AddScoped<IAbastecimentoService, AbastecimentoService>();
 
+// Adicione esta linha após builder.Services.AddControllers()
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -87,11 +90,24 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "WiseTruck API V1");
-        c.RoutePrefix = string.Empty; // Para acessar o Swagger na raiz
+        c.RoutePrefix = string.Empty;
+    });
+}
+else
+{
+    // Em produção, ainda queremos o Swagger, mas desativamos o redirecionamento HTTPS
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "WiseTruck API V1");
+        c.RoutePrefix = string.Empty;
     });
 }
 
-app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+// E esta linha antes de app.Run()
+app.MapHealthChecks("/health");
+
 app.Run();

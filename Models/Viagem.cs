@@ -41,12 +41,12 @@ namespace WiseTruck.API.Models
 
         // Propriedades de navegação
         [ForeignKey("CaminhaoId")]
-        public virtual Caminhao Caminhao { get; set; }
+        public virtual Caminhao? Caminhao { get; set; }
 
         [ForeignKey("MotoristaId")]
-        public virtual Motorista Motorista { get; set; }
+        public virtual Motorista? Motorista { get; set; }
 
-        public virtual ICollection<Pedagio> Pedagios { get; set; }
-        public virtual ICollection<Abastecimento> Abastecimentos { get; set; }
+        public virtual ICollection<Pedagio> Pedagios { get; set; } = new List<Pedagio>();
+        public virtual ICollection<Abastecimento> Abastecimentos { get; set; } = new List<Abastecimento>();
     }
 } 

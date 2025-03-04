@@ -1,5 +1,3 @@
-
-
 # WiseTruck API
 
 ## Descrição
@@ -99,6 +97,18 @@ dotnet run
 - `POST /api/pedagio` - Registrar novo pedágio
 - `PUT /api/pedagio/{id}` - Atualizar pedágio
 - `DELETE /api/pedagio/{id}` - Excluir pedágio
+
+## Implantação no Render.com
+
+A API está hospedada no Render.com e pode ser acessada em:
+[https://wisetruck-api.onrender.com](https://wisetruck-api.onrender.com)
+
+Para implantar sua própria instância:
+1. Faça fork do repositório
+2. Crie uma conta no Render.com
+3. Crie um novo Web Service usando o repositório
+4. Configure a variável de ambiente DATABASE_URL com sua string de conexão PostgreSQL
+5. Implante o serviço
 
 
 
