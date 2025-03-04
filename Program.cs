@@ -44,7 +44,10 @@ builder.Services.AddSwaggerGen(c =>
 // Configuração do contexto do banco de dados
 builder.Services.AddDbContext<WiseTruckContext>(options =>
 {
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    // Priorizar a string de conexão do ambiente (Render.com)
+    var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ?? 
+                          builder.Configuration.GetConnectionString("DefaultConnection");
+    
     options.UseNpgsql(connectionString, npgsqlOptions =>
     {
         npgsqlOptions.EnableRetryOnFailure(
@@ -84,6 +87,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "WiseTruck API V1");
+        c.RoutePrefix = string.Empty; // Para acessar o Swagger na raiz
     });
 }
 
