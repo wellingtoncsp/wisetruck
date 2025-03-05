@@ -140,3 +140,4 @@
 /home/well/dev/wisetruckv2/WiseTruck.API/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Physical.dll
 /home/well/dev/wisetruckv2/WiseTruck.API/bin/Debug/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll
 /home/well/dev/wisetruckv2/WiseTruck.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll
+/home/well/dev/wisetruckv2/WiseTruck.API/obj/Debug/net8.0/WiseTruck.API.sourcelink.json

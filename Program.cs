@@ -6,6 +6,17 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Adicionar suporte a CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -103,6 +114,9 @@ else
         c.RoutePrefix = string.Empty;
     });
 }
+
+// Usar CORS antes de UseAuthorization e UseEndpoints
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 app.MapControllers();
